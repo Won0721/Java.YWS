@@ -25,3 +25,4 @@ replay_pid*
 java_git/.classpath
 java_git/.gitattributes
 java_git/.project
+/bin/
