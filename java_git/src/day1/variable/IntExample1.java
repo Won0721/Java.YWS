@@ -1,4 +1,9 @@
 package day1.variable;
+/* byte (1byte)
+ * short (2byte)
+ * int (4byte)
+ * long (8byte)
+ */
 
 public class IntExample1 {
 	public static void main(String[] args) {
