@@ -5,7 +5,7 @@ package day1.variable;
  * long (8byte)
  */
 
-public class IntExample1 {
+public class IntEx {
 	public static void main(String[] args) {
 		
 		int num1 = 11; // 십진수 11

@@ -1,7 +1,7 @@
 package day1.variable;
 // float (4byte)  
 // double (8byte)
-public class FloatExample1 {
+public class FloatEx {
 	public static void main(String[] args) {
 		double num1 = 3.14;
 		

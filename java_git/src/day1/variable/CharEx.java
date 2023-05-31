@@ -4,7 +4,7 @@ import java.math.BigInteger;
 
 // char (2byte)
 
-public class CharExample1 {
+public class CharEx {
 	public static void main(String[] args) {
 		// 변수타입 변수명;
 		char ch1;
