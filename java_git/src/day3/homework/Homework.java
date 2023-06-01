@@ -17,23 +17,23 @@ public class Homework {
 		 * are you a women? man
 		 */
 		Scanner sc = new Scanner(System.in);
-		/*
+		
 		
 		System.out.println("성별을 입력해주세요 (M or W)");
 		String result = sc.next();
 		System.out.println("여성입니까? " + (result == "Man" ? true : false));
 		
 	
-		*/
+		
 		
 		// 2. if문 사용
 		System.out.println("성별을 입력해주세요 (Man or Woman)");
 		String gender;
 		gender = sc.next();
-		if(gender == "M") {
+		if(gender.equals("Man")) {
 			System.out.println("여성입니까? "+ gender);
 		}
-		else if(gender == "W"){
+		else if(gender.equals("Woman")){
 			System.out.println("여성입니까? "+ gender);
 		}
 	
