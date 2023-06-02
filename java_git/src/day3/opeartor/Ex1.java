@@ -17,8 +17,8 @@ public class Ex1 {
 		
 		System.out.println("Do you pass "+ score + " points? " + answer );
 		
-		System.out.println("===========================================");
 		
+		System.out.println("===========================================");
 		System.out.print("성적을 입력하세요 : ");
 		int score2 = sc.nextInt();
 		String result = score2>=60 ? "pass" : "fail";
