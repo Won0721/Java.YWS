@@ -13,34 +13,13 @@ public class TriangleEx {
 		b = sc.nextInt();
 		c = sc.nextInt();
 		
-		
-		// c가 제일 클 경우
-		if(a<=c && b<=c){
-			if(a+b>c) {
-				System.out.println("삼각형 만들 수 있습니다.");
-			}
-			else if(a+b<=c) {
-				System.out.println("못만들어요");
-			}
-		}// b가 제일 클 경우
-		else if(a<=b && c<=b) {
-			if(a+c>b) {
-				System.out.println("삼각형 만들 수 있습니다");
-			}
-			else if(a+c<=b){
-				System.out.println("못만들어요");
-			}
-		} // a가 제일 클 경우
-		else if (b<=a && c<=a) {
-			if(b+c>a) {
-				System.out.println("삼각형 만들 수 있습니다.");
-			}
-			else if(b+c<=a){
-				System.out.println("못만들어요");
-			}
+		boolean isAdd = (a+b>c) && (b+c>a) && (c+b>a);
+		if(isAdd) {
+			System.out.println("삼각형을 만들 수 있습니다.");
 		}
-		
-		
+		else {
+			System.out.println("만들 수 없습니다.");
+		}
 	}
 
 }
