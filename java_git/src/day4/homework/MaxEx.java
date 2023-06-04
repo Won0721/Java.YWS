@@ -9,7 +9,7 @@ public class MaxEx {
 		int num1 = sc.nextInt();
 		int num2 = sc.nextInt();
 		
-		if(num1>num2) {
+		if(num1>=num2) {
 			System.out.println(num1);
 		}
 		else {

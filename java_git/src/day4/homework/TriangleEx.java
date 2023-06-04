@@ -13,7 +13,7 @@ public class TriangleEx {
 		b = sc.nextInt();
 		c = sc.nextInt();
 		
-		boolean isAdd = (a+b>c) && (b+c>a) && (c+b>a);
+		boolean isAdd = ((a+b>c) && (a<c && b<c)) || ((b+c>a) && (b<c && c<a)) || ((a+c>b) &&(a<b && c<b)) || (a==b && b==c);
 		if(isAdd) {
 			System.out.println("삼각형을 만들 수 있습니다.");
 		}
