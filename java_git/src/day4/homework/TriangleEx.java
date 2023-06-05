@@ -8,6 +8,7 @@ public class TriangleEx {
 		// 세 변 중 작은 두변의 길이의 합이 큰 변보다 커야 삼각형을 만들 수 있다.
 		System.out.print("세 정수를 입력하세요 : ");
 		int a,b,c;
+		int max;
 		Scanner sc = new Scanner(System.in);
 		a = sc.nextInt();
 		b = sc.nextInt();
@@ -20,6 +21,32 @@ public class TriangleEx {
 		else {
 			System.out.println("만들 수 없습니다.");
 		}
+		
+//		if(a>b) {
+//			if(a>c) {
+//				max = a;
+//			}
+//			else {
+//				max = c;
+//			}
+//		}
+//		
+//		else if(b>c) {
+//			max = b;
+//		}
+//		
+//		else {
+//			max = c;
+//		}
+		
+//		max = a > b ? (a>c ? a:c) : (b > c ? b :c);
+		// 작은 두변의 합 > max
+		// 세변의 합 - max = 작은 두변의 합
+		// 세변의 합에서 max를 뺀 값이 max보다 크면 삼각형이라고 출력
+		// 아니면 아니락 출력
+
+		
+		
 	}
 
 }

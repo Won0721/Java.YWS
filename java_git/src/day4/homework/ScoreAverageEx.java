@@ -13,9 +13,9 @@ public class ScoreAverageEx {
 		eng = sc.nextInt();
 		System.out.print("수학 성적을 입력하세요 : ");
 		math = sc.nextInt();
-		double avg = (kor + eng + math) / 3.0;
+		double avg = (kor + eng + math) / 3.0; // (double)로 형변환도 가능
 				
-		System.out.printf("평균 성적은 %.2f점 입니다" ,avg);
+		System.out.printf("평균 성적 : %.2f점 입니다" ,avg);
 		
 	}
 

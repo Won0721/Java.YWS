@@ -8,7 +8,8 @@ public class MaxEx {
 		Scanner sc = new Scanner(System.in);
 		int num1 = sc.nextInt();
 		int num2 = sc.nextInt();
-		
+		int max; // 두 수 중 큰 수를 저장할 변수
+			     // 큰 수를 max에 저장하고 max를 출력
 		if(num1>=num2) {
 			System.out.println(num1);
 		}
@@ -16,6 +17,6 @@ public class MaxEx {
 			System.out.println(num2);
 		}
 		
-		}
+	}
 
 }
