@@ -42,6 +42,22 @@ public class UpdownEx {
 			System.out.println("System exit!");
 			
 			
+			/* int num;
+			 * int min =1 , max =100;
+			 * int random;
+			 * Scanner sc = new Scanner(System.in);
+			 * random = (int)(Math.random()*(max - min + 1) + min);
+			 * random = (int)(Math.random()*(100) + 1);
+			 * System.out.println(random);
+			 * 
+			 * 반복문 : 맞출때 까지 = > 입력한 정수가 정답이 아니면 반복
+			 * while(random !=num){
+			 * 		System.out.print("Input Num (1 ~ 100) :");
+					int num = sc.nextInt();
+			 * }
+			 */
+			
+			
 			
 			
 		}
