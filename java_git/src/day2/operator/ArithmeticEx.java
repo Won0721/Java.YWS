@@ -10,7 +10,7 @@ public class ArithmeticEx {
 		int mod = num1 % num2;
 		
 		
-		// 정수 뒤에 char 형 문자가 오게 될 경우 문자가 정수로 표현되어 String으로 바꾸거나 정수형 앞에 "" 입력
+		// 정수 뒤에 char 형 문자가 오게 될 경우 문자가 정수로 표현되어 String으로 바꾸거나 정수형 앞에 "" 입력해야함
 		System.out.println(""+(num1+num2));
 		System.out.println(""+num1+num2);
 		
