@@ -1,6 +1,6 @@
 package day10.practice;
 
-public class RectExHomewrok {
+public class RectEx2 {
 	public static void main(String[] args) {
 		Rect1 r1 = new Rect1(0,0,10,10);
 		r1.print();
