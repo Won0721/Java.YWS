@@ -1,6 +1,28 @@
 # JAVA
+
+#### 자바
+
   - JVM 자바 가상 머신(Java Virtual Machine)  
     - 자바 프로그램이 어느 기기, 어느 운영체제 상에서도 실행될 수 있게 만들어준다. (WORA)
+    - 운영체제(OS)로부터 메모리를 할당 받고, 그 메모리를 용도에 따라 여러 영역으로 나누어 관리한다.
+        - Method(Static)영역 
+          : 필드(field) 부분에서 선언된 변수(전역변수)와 정적 멤버변수(static이 붙은 자료형)을 Static 영역에 저장한다.
+        - stack 영역
+          : 우리가 작성하던 메소드 내에서 정의하는 기본자료형에 해당되는 지역변수의 데이터 값이 저장되는 공간
+          
+        - Heap 영역
+         : 참조형의 데이터 타입을 갖는 객체(인스턴스), 배열 등은 Heap 영역에 데이터가 저장된다.
+```
+public class HeapAreaEx01 {
+	public static void main(String[] args) {
+		int[] a = null; // int형 배열 선언 및 Stack 영역 공간 할당
+		System.out.println(a); // 결과 : null
+		a = new int[5]; // Heap 영역에 5개의 연속된 공간 할당 및 
+		                // 변수 a에 참조값 할당
+		System.out.println(a); // 결과 : @15db9742 (참조값)
+	}
+}  
+```
 
 
   - JRE 자바 런타임 환경(Java Runtime Environment)
@@ -12,7 +34,6 @@
 
         => "프로그램"을 생성하고 컴파일 할 수 있다
 
-#### 자바
 
 #### 객체란?
   물리적으로 존재하거나 추상적으로 생각할 수 있는 것 중에서 정의 가능하고 식별 가능한것을 말한다.  
