@@ -43,6 +43,7 @@ public class QueueEx {
 		//6. poll() : front에 위치한 데이터를 반환 후 삭제
 		System.out.println("poll :" + q.poll());
 		System.out.println(q);
+		
 	}
 
 }

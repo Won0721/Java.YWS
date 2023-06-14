@@ -18,66 +18,89 @@ public class BaseballGameEx {
 	public static void main(String[] args) {
 		Random r = new Random();
 		Scanner sc =new Scanner(System.in);
-		int[] num = new int[3];		// 랜덤으로 생성한 숫자야구
+		int[] numArr = new int[3];		// 랜덤으로 생성한 숫자야구
 		int[] numUser = new int[3]; // 유저가 입력한 숫자
 		
-		// 배열 랜덤 생성 {? , ? , ?}
-		for(int i=0; i<num.length; i++) {
-			num[i]=r.nextInt(9)+1;
-			for(int j=0; j<i; j++) {
-				if(num[i]==num[j]) {
-					i--;
-					break;
-				}
-			}
-		}
-		
-		
-		
-		while(true) {
-			
-			int sCount = 0; // 스트라이크 개수
-			int bCount = 0; // 볼 개수
-			System.out.println("=======숫자야구게임======");
-			System.out.print("숫자를 입력해주세요 :");
-			numUser[0] = sc.nextInt();
-			numUser[1] = sc.nextInt();
-			numUser[2] = sc.nextInt();
-			
-			
-			for(int i=0; i<num.length; i++) {
-				if(num[i] == numUser[i]) {
-					sCount++;
-					System.out.print(sCount + "S ");
-				}
-				if(num[i] == numUser[1] || num[i] ==numUser[2]) {
-					bCount++;
-					System.out.print(bCount + "B ");
-				}
-				else {
-					System.out.println("3Out");
-				}
-				
-			}
-			
 	
+		while(true) {
+			for(int i=0; i<numArr.length; i++) {
+				numArr[i]=r.nextInt(9)+1;
+				for(int j=0; j<i; j++) {
+					if(numArr[i]==numArr[j]) {
+						i--;
+						break;
+					}
+				}
+			}
 			
+			System.out.print("숫자야구 정답 : ");
 			
+			for(int i=0; i<numArr.length; i++) {
+				System.out.print(numArr[i] +" "); 
+			}
 			
+			System.out.println();
 			
+			while(true) {
+				System.out.println("=======숫자야구게임======");
+				System.out.print("숫자를 입력해주세요 :");
 			
+				for(int i=0; i<numArr.length; i++) {
+					numUser[i] = sc.nextInt();
+					if(numUser[i] > 9 || numUser[i] < 1) {
+						System.out.println("유효 범위 숫자 이내로 입력해주세요 (예 : 1 ~ 9)");
+						i--;
+						break;
+					}
+				}
+		
+				int sCount = 0; // 스트라이크 개수
+				int bCount = 0; // 볼 개수
 			
+				for(int i=0; i<numArr.length; i++) {
+				
+					if(numArr[i] == numUser[i]) {
+						sCount++;
+					}
+				
+					else {
+						for(int j=0; j<numArr.length; j++) {
+							if(numArr[i] == numUser[j]) {
+								bCount++;
+							}
+						}	
+					}			
+				}
+			
+				if(sCount > 0 || bCount > 0) {
+					System.out.println(sCount +"스트라이크 " + bCount + "볼" );
+				}
+			
+				else {
+					System.out.println("삼진 아웃");
+				}
+			
+				if(sCount ==3) {
+					System.out.println("3 스트라이크!");
+					System.out.println("새로운 게임을 진행하시겠습니까? Y/N");
+					char ch = sc.next().charAt(0);
+					if(ch=='Y') { // 2중 while문 탈출 해서 첫 while문 부터 다시 시작 
+						break;
+					}
+					
+					else if(ch=='N') { // while문 탈출
+						System.out.println("게임 종료!");
+						return;
+					}
+				}		
+			}
 		}
-		
-		
 		
 		
 		
 		
 	}
-	
 
-	
-	
+
 
 }
