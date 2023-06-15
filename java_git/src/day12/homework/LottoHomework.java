@@ -1,6 +1,6 @@
-package day12.hmoework;
+package day12.homework;
 
-public class LottoEx {
+public class LottoHomework {
 	/* 1등 : 번호: 6개
 	 * 2등 : 번호 5개 + 보너스
 	 * 3등 : 번호 5개
@@ -18,5 +18,15 @@ public class LottoEx {
 	 * losing ticket!
 	 * 
 	 */
+	
+	public static void main(String[] args) {
+		int[] lottoCom = new int[6];
+		int[] lottoUser = new int[6];
+		LottoService.randomArray(45, lottoCom);
+		LottoService.print(lottoCom);
+	}
 
+	
 }
+
+

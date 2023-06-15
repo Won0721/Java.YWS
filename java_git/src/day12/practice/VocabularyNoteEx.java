@@ -9,6 +9,8 @@ public class VocabularyNoteEx {
 	public static void main(String[] args) {
 		Word word1 = new Word("Vocabulary", "어휘");
 		
+		Word word3 = word1;
+		
 		word1.print();
 		word1.addMeaning("어휘2");
 		
@@ -29,7 +31,7 @@ public class VocabularyNoteEx {
 		word2.print();
 		
 		
-		
+
 	}
 	
 
@@ -39,7 +41,8 @@ public class VocabularyNoteEx {
  * - 뜻 들
  */
 
-class Word{
+class Word{ // 
+
 	// 멤버변수
 	private String engWord;
 	private String meaning[];
@@ -55,7 +58,7 @@ class Word{
 		this.engWord = engWord;
 		this.meaning = new String[5]; // 기본 5개의 뜻 
 	}
-	public Word(Word w) {
+	public Word(Word w) { // 복사 생성자 (깊은복사를 위해)
 		this.engWord = w.engWord;
 		this.meaning = new String[5]; 
 		for(int i=0; i<w.meaningCount; i++) {

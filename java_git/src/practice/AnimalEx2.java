@@ -1,6 +1,6 @@
 package practice;
 
-public class AAA {	public static void main(String[] args) {
+public class AnimalEx2 {	public static void main(String[] args) {
 	Animal lion1 = new Lion();
 	Animal rabbit1 = new Rabbit();
 	Animal monkey1 = new Monkey();

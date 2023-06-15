@@ -8,7 +8,8 @@ public class Randomlotto {
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		Random random = new Random();
-		
+
+	
 		System.out.println("구입금액을 입력해주세요");
 		int money = sc.nextInt(); // 지불할 금액 
 		
@@ -29,6 +30,7 @@ public class Randomlotto {
 					} 
 				}
 			}
+			
 			Arrays.sort(lottoUser); // 로또 번호 올림순 정렬
 			System.out.println(Arrays.toString(lottoUser)); // 구매한 로또 번호 리스트 출력
 			

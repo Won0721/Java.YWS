@@ -2,14 +2,14 @@ package day12.practice;
 
 public class VocabularyNote {
 	
-	private Word wordList[];
+	private Word[] wordList;
 	private int wordCount;
 	
 	
-	public VocabularyNote() {
+	public VocabularyNote() { // 
 		wordList = new Word[10];
 	}
-	public VocabularyNote(Word wordList[]) {
+	public VocabularyNote(Word[] wordList) {
 		// 기존 단어장의 크기와 10을 비교해서 큰 수로 단어장 크기로 선택
 		int size = wordList.length > 10 ? wordList.length : 10;
 		

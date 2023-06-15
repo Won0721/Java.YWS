@@ -29,6 +29,7 @@ public class Array {
 		for(int i=0; i<count; i++) {
 			// 중복되면 메소드 종료하면서 중복됐다고 알려줌
 			if(num == arr[i]) {
+				System.out.println("중복됨");
 				return true;
 			}
 		}
