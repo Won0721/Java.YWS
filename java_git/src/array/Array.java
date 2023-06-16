@@ -29,7 +29,7 @@ public class Array {
 		for(int i=0; i<count; i++) {
 			// 중복되면 메소드 종료하면서 중복됐다고 알려줌
 			if(num == arr[i]) {
-				System.out.println("중복됨");
+				//System.out.println("중복됨");
 				return true;
 			}
 		}
@@ -43,7 +43,7 @@ public class Array {
 		if(max < min) {
 			int tmp = max;
 			max = min;
-			min = max;
+			min = tmp;
 		}	
 		// 배열에 생성되어있지않으면(배열이 null이면) 메서드 종료 
 		if(arr == null) {
@@ -90,7 +90,27 @@ public class Array {
 		}
 		// 반복문이 끝날 때 까지 중복이 없으면 
 		return false;
+	}
+	/** 정수형 배열이 주어지면 오름차순으로 버블 정렬하는 메소드
+	 *  매개변수 : 배열 => int[] arr
+	 *  리턴타입 : 없음 => void
+	 *  메서드명 sort
+	 */
+	public static void bubblesort(int[] arr) {
+		if(arr==null) {
+			return;
+		}
 		
+		for(int i=0; i< arr.length-1; i++) {
+			for(int j=0; j< arr.length-1-i; j++) {
+				if(arr[j] > arr[j+1]) {
+					// 앞에 수가 크면
+					int tmp = arr[j];
+					arr[j] = arr[j+1];
+					arr[j+1] = tmp;
+				}
+			}
+		}
 	}
 	
 	
