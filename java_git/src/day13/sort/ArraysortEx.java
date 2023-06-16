@@ -7,7 +7,10 @@ import array.Array;
 
 public class ArraysortEx {
 	public static void main(String[] args) {
-		int[] arr = {1,4,7,9,2,8,3,6}; // 1부터 9  크기8! 
+		int[] arr = {9,4,7,1,2,8,3,6}; // 1부터 9  크기8! 
+		/* 
+		 * 
+		 */
 		
 		int[] arr5 = {5,4,3,2,1,5,6,10};
 		

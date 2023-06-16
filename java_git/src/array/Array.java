@@ -67,7 +67,7 @@ public class Array {
 		return arr;
 	}
 	
-	/** 주어진 배열에 중복된 값이 있는지 없는지 알려주는 메서드 
+	/** 주어진 배열에 중복된 값이 있으면 true 중복 없으면 false 
 	 * 매개변수 : 배열 = > int arr[]
 	 * 리턴타입 : 중복여부 =>boolean  
 	 * 메서드명 : arrayCheck
