@@ -3,45 +3,15 @@ package day12.practice;
 
 import java.util.Scanner;
 
-public class VocabularyNoteEx {
-	/* 영어 단어장을 만들기 위한 필요한 객체를 만들고 테스트
-	 */
-	public static void main(String[] args) {
-		Word word1 = new Word("Vocabulary", "어휘");
-		
-		Word word3 = word1;
-		
-		word1.print();
-		word1.addMeaning("어휘2");
-		
-		System.out.println("=========뜻 추가 후 ");
-	
-		word1.print();
-		
-		word1.removeMeaning(1);
-		System.out.println("단어 삭제 후 -");
-		word1.print();
-		
-		System.out.println("===========");
+import lombok.Data;
 
-		Word word2 = new Word("voca");
-		word2.print();
-		System.out.println("=========");
-		word2.addMeaning("보카");
-		word2.print();
-		
-		
 
-	}
-	
-
-}
 /* 한 단어를 관리하는 클래스
  * - 영단어 
  * - 뜻 들
  */
-
-class Word{ // 
+@Data // geeter , setter, toString, equals를 추가
+public class Word{ // 
 
 	// 멤버변수
 	private String engWord;
@@ -115,6 +85,33 @@ class Word{ //
 		meaning[meaningCount-1] = null;
 		// 제거 됐으면 뜻 개수를 하나를 줄임
 		meaningCount--;
+	}
+	//getter
+	public String getEngWord() {
+		return engWord;
+	}
+	
+	public void setEngWord(String engWord) {
+		this.engWord = engWord;
+	}
+	/** 수정할 뜻의 번호와 수정할 뜻이 주어지면 뜻을 수정하고 수정 여부를 알려주는 메서드
+	 * 매개변수 : 수정할 뜻의 번지, 수정할 뜻 = > int meaningNumber, String fixingMeaning
+	 * 리턴타입 : boolean
+	 * 메서드명 : updateMeaning
+	 * @param meaningIndex
+	 * @param fixingMeaning
+	 * @return
+	 */
+	
+	public boolean updateMeaning(int meaningNumber, String fixingMeaning) {
+		// 수정할 뜻의 번지가 잘못된 경우
+		if(meaningNumber > meaningCount || meaningNumber <= 0) {
+			return false;			
+		}
+		// meaningNum은 1부터고 번지는 0부터 이기에 
+		this.meaning[meaningNumber-1] = fixingMeaning;
+		return true;
+		
 	}
 	
 	
