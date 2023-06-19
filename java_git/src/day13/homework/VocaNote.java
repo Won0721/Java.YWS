@@ -1,10 +1,14 @@
 package day13.homework;
 // A    // B 
+
+import java.util.Scanner;
+
 public class VocaNote {
 	// 단어 1개의 여러뜻이 있는 클래스를 배열로 만들어 모아두는 단어장 클래스
 	static final int MAX = 10;
 	private VocaWord[] wordList;
 	private int wordListCount=0;
+	Scanner sc = new Scanner(System.in);
 	
 	public VocaNote() {
 		wordList = new VocaWord[MAX];
@@ -79,6 +83,8 @@ public class VocaNote {
 			wordList[wordListCount++] = new VocaWord(title,meaning);
 			return;
 		}
+		
+		
 		// 있는 단어면 뜻 추가 
 		wordList[index].addMeaning(meaning);
 		
