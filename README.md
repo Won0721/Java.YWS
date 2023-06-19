@@ -114,6 +114,25 @@ public class HeapAreaEx01 {
 class 자식클래명 extends 부모클래스명 {
 }
 ```
+#### 오버라이딩(OverRiding)
+부모 클래스에 있는 메서드를 자식클래스에서 재정의하는 것
+```
+// 부모클래스
+class Person { 
+	void run(){
+	System.out.println("사람이 달려요");
+	}
+}
+
+// 자식클래스 extends 부모클래스
+class Student extends Person {
+	void run(){
+	System.out.println("학생이 달려요");
+	// 자식클래스의 메서드 호출 시 부모클래스의 메서드도 같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
+	super.run();
+	}
+}
+```
 
 #### 다형성
   같은 인터페이스 또는 부모를 공유(상속)하는 객체가 여러 유형의 타입을 가질 수 있는것을 말한다.
