@@ -114,8 +114,10 @@ public class HeapAreaEx01 {
 class 자식클래명 extends 부모클래스명 {
 }
 ```
-#### 오버라이딩(OverRiding)
-부모 클래스에 있는 메서드를 자식클래스에서 재정의하는 것
+#### 메서드 오버라이딩(OverRiding)
+  - 상위 클래스에 정의된 메소드의 이름, 반환형, 매개변수 선언까지 
+    완전히 동일한 메소드를 하위 클래스에서 다시 정의하는 것
+  - 하위 클래스에 정의된 메소드에 의해 상위 클래스의 메소드는 가리워진다.
 ```
 // 부모클래스
 class Person { 
@@ -127,6 +129,7 @@ class Person {
 // 자식클래스 extends 부모클래스
 class Student extends Person {
 	void run(){
+	System.out.println("사람이 달려요");  // 외부에 가려짐
 	System.out.println("학생이 달려요");
 	// 자식클래스의 메서드 호출 시 부모클래스의 메서드도 같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
 	super.run();
