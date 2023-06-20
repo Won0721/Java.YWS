@@ -107,8 +107,7 @@ public class HeapAreaEx01 {
 
 #### 상속
   부모클래스(상위클래스)와 자식클래스(하위클래스)가 있으며,  
-  자식클래스는 부모클래스를 선태해서 그 부모의 멤버를 상속받아  
-  사용이 가능하다.  
+  자식클래스는 부모클래스를 선태해서 그 부모의 멤버를 상속받아 사용이 가능하다.  
 
 ```
 class 자식클래명 extends 부모클래스명 {
@@ -135,6 +134,46 @@ class Student extends Person {
 	super.run();
 	}
 }
+```
+
+```
+class Speaker{
+
+	private int volumeRate;
+	public void showCurrentState(){
+		System.out.println("볼륨 크기 : " + volumeRate );
+	}
+	public void setVolume(int vol){
+		voluemRate = vol;
+	}
+}
+
+class BaseEnSpeaker extends Speaker{
+
+	private int baseRate;
+
+	public void showCurrentState(){
+		super.showCurrentState();
+		System.out.println("베이스 크기 : " + baseRate );
+	}
+	public void setBaseRate(int base)
+	{
+		baseRate = base;
+	
+}
+```
+> #### 자바 컴파일러의 실제 관점
+> 중 저음 보강 스피커는 (일종의) 스피커이다. (O) <br/>
+> BaseEnSpeaker is a Speaker. (O)
+```
+public static void main(String[] args) {
+
+	Speaker bs = new BaseEnSpeaker();
+	bs.setVolume(10);
+	bs.setBaseRate(20); ====> 컴파일 에러 : bs가 참조하는 것은 Speaker의 인스턴스로 인식하기 때문에 BaseEnSpeaker의 멤버에 접근 불가
+	bs.showCurrentState();	
+}
+
 ```
 
 #### 다형성
