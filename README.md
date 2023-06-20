@@ -107,15 +107,16 @@ public class HeapAreaEx01 {
 
 #### 상속
   부모클래스(상위클래스)와 자식클래스(하위클래스)가 있으며,  
-  자식클래스는 부모클래스를 선태해서 그 부모의 멤버를 상속받아  
-  사용이 가능하다.  
+  자식클래스는 부모클래스를 선태해서 그 부모의 멤버를 상속받아 사용이 가능하다.  
 
 ```
 class 자식클래명 extends 부모클래스명 {
 }
 ```
-#### 오버라이딩(OverRiding)
-부모 클래스에 있는 메서드를 자식클래스에서 재정의하는 것
+#### 메서드 오버라이딩(OverRiding)
+  - 상위 클래스에 정의된 메소드의 이름, 반환형, 매개변수 선언까지 
+    완전히 동일한 메소드를 하위 클래스에서 다시 정의하는 것
+  - 하위 클래스에 정의된 메소드에 의해 상위 클래스의 메소드는 가리워진다.
 ```
 // 부모클래스
 class Person { 
@@ -127,9 +128,87 @@ class Person {
 // 자식클래스 extends 부모클래스
 class Student extends Person {
 	void run(){
+	super.run(); // 자식클래스의 메서드 호출 시 부모클래스의 메서드도
+  		     //	같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
+	System.out.println("사람이 달려요");  // 외부에 가려짐
 	System.out.println("학생이 달려요");
-	// 자식클래스의 메서드 호출 시 부모클래스의 메서드도 같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
-	super.run();
+	}
+}
+```
+
+```
+class Speaker{
+
+	private int volumeRate;
+	public void showCurrentState(){
+		System.out.println("볼륨 크기 : " + volumeRate );
+	}
+	public void setVolume(int vol){
+		voluemRate = vol;
+	}
+}
+
+class BaseEnSpeaker extends Speaker{
+
+	private int baseRate;
+
+	public void showCurrentState(){
+		super.showCurrentState();
+		System.out.println("베이스 크기 : " + baseRate );
+	}
+	public void setBaseRate(int base)
+	{
+		baseRate = base;
+	
+}
+```
+#### 업캐스팅  
+  - 자식클래스의 객체를 부모타입으로 참조받음
+> #### 자바 컴파일러의 실제 관점
+> 중 저음 보강 스피커는 (일종의) 스피커이다. (O) <br/>
+> BaseEnSpeaker is a Speaker. (O)
+```
+public static void main(String[] args) {
+
+	Speaker bs = new BaseEnSpeaker(); // 업캐스팅
+	bs.setVolume(10);
+	bs.setBaseRate(20); ====> 컴파일 에러 : bs가 참조하는 것은 Speaker의 인스턴스로 인식하기 때문에 BaseEnSpeaker의 멤버에 접근 불가
+	bs.showCurrentState();	
+}
+```
+```
+업캐스팅(Upcasting)된 참조변수는 해당 참조변수가 참조하는 객체의 타입으로부터
+상속받은 메서드들 중에서 동일한 시그니처를 가진 메서드를 호출할 수 있다.
+
+	AAA p1 = new BBB();	// BBB 클래스의 객체를 부모타입의 참조변수로 받고있으나 변수의 타입이 다르기 때문에
+				// 해당 변수를 통해 접근할 수 있는 메서드의 범위가 제한되어 있음.
+
+				// 업캐스팅한 참조변수(p1)는 참조변수의 타입(AAA)의 멤버변수들에만 접근이 가능하다.
+
+				// 그러나 오버라이딩(자식클래스에 재정의)된 메서드의 경우
+				// 자식클래스(BBB)의 메서드에서 재정의한 내용이 실행될 수 있음
+
+	p1.A();		// 
+	p1.method();	// 부모클래스로 부터 상속받은(오버라이딩) 메서드이기에 자식클래스의 객체 메서드로서 호출
+	p1.B();	 // 컴파일 오류 : 참조변수의 타입은 부모클래스이기 때문에 자식클래스에서 정의된 메서드는 실행 불가
+
+class AAA {
+	public void A(){
+		System.out.println("AAA");
+	}
+
+	public void method(){
+		System.out.println("A method");
+	}
+}
+class BBB extends AAA{
+	public void B(){
+		System.out.println("AAA");
+	}
+	
+	// 오버라이딩(상속) 받은 메서드
+	public void method(){
+		System.out.println("B method");
 	}
 }
 ```
