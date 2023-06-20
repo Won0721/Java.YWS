@@ -4,7 +4,7 @@ public class VocabularyNote {
 	
 	//멤버 변수
 	//단어들
-	private Word wordList[];//단어들
+	private Word[] wordList;//단어들
 	private int wordCount;//저장된 단어의 개수
 	
 	//생성자
