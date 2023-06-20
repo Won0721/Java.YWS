@@ -128,10 +128,10 @@ class Person {
 // 자식클래스 extends 부모클래스
 class Student extends Person {
 	void run(){
+	super.run(); // 자식클래스의 메서드 호출 시 부모클래스의 메서드도
+  		     //	같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
 	System.out.println("사람이 달려요");  // 외부에 가려짐
 	System.out.println("학생이 달려요");
-	// 자식클래스의 메서드 호출 시 부모클래스의 메서드도 같이 호출하고 싶을 경우 super.메서드명 을 추가시켜준다.
-	super.run();
 	}
 }
 ```
@@ -162,18 +162,55 @@ class BaseEnSpeaker extends Speaker{
 	
 }
 ```
+#### 업캐스팅  
+  - 자식클래스의 객체를 부모타입으로 참조받음
 > #### 자바 컴파일러의 실제 관점
 > 중 저음 보강 스피커는 (일종의) 스피커이다. (O) <br/>
 > BaseEnSpeaker is a Speaker. (O)
 ```
 public static void main(String[] args) {
 
-	Speaker bs = new BaseEnSpeaker();
+	Speaker bs = new BaseEnSpeaker(); // 업캐스팅
 	bs.setVolume(10);
 	bs.setBaseRate(20); ====> 컴파일 에러 : bs가 참조하는 것은 Speaker의 인스턴스로 인식하기 때문에 BaseEnSpeaker의 멤버에 접근 불가
 	bs.showCurrentState();	
 }
+```
+```
+업캐스팅(Upcasting)된 참조변수는 해당 참조변수가 참조하는 객체의 타입으로부터
+상속받은 메서드들 중에서 동일한 시그니처를 가진 메서드를 호출할 수 있다.
 
+	AAA p1 = new BBB();	// BBB 클래스의 객체를 부모타입의 참조변수로 받고있으나 변수의 타입이 다르기 때문에
+				// 해당 변수를 통해 접근할 수 있는 메서드의 범위가 제한되어 있음.
+
+				// 업캐스팅한 참조변수(p1)는 참조변수의 타입(AAA)의 멤버변수들에만 접근이 가능하다.
+
+				// 그러나 오버라이딩(자식클래스에 재정의)된 메서드의 경우
+				// 자식클래스(BBB)의 메서드에서 재정의한 내용이 실행될 수 있음
+
+	p1.A();		// 
+	p1.method();	// 부모클래스로 부터 상속받은(오버라이딩) 메서드이기에 자식클래스의 객체 메서드로서 호출
+	p1.B();	 // 컴파일 오류 : 참조변수의 타입은 부모클래스이기 때문에 자식클래스에서 정의된 메서드는 실행 불가
+
+class AAA {
+	public void A(){
+		System.out.println("AAA");
+	}
+
+	public void method(){
+		System.out.println("A method");
+	}
+}
+class BBB extends AAA{
+	public void B(){
+		System.out.println("AAA");
+	}
+	
+	// 오버라이딩(상속) 받은 메서드
+	public void method(){
+		System.out.println("B method");
+	}
+}
 ```
 
 #### 다형성
