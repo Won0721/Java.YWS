@@ -18,11 +18,12 @@ public class polymorphismEx1 {
 		
 		System.out.println("부모클래스 HomeAppliances를 상속받아 HomeAppliances 객체에만 turnOn , turnOff 기능 생성 ");
 		System.out.println();
-		Tv1 tv2 = new Tv1();
-		Radio1 radio2 = new Radio1();
-		AirConditioner1 aircon2 = new AirConditioner1();
-		RemoteControl1 remocon2 = new RemoteControl1();
+		Tv2 tv2 = new Tv2();
+		Radio2 radio2 = new Radio2();
+		AirConditioner2 aircon2 = new AirConditioner2();
+		RemoteControl2 remocon2 = new RemoteControl2();
 		
+		// 매개변수 다향성
 		remocon2.turnOn(tv2); // 가전을 켜는 기능
 		remocon2.turnOn(radio2); // 가전을 켜는 기능
 		remocon2.turnOn(aircon2); // 가전을 켜는 기능
@@ -74,7 +75,7 @@ class Radio{
 		power = true;
 	}
 }
-class RemoteControl1{
+class RemoteControl2{
 	
 	public void turnOn(HomeAppliances appliances) {
 		appliances.turnOn();
@@ -86,17 +87,17 @@ class RemoteControl1{
 	}
 }
 
-class Tv1 extends HomeAppliances{
+class Tv2 extends HomeAppliances{
 	int channel;
 
 }
-class AirConditioner1 extends HomeAppliances{
+class AirConditioner2 extends HomeAppliances{
 	double currentTemperature;
 	double desiredTemperature;
 
 }
 
-class Radio1 extends HomeAppliances{
+class Radio2 extends HomeAppliances{
 	
 	double frequency;
 	

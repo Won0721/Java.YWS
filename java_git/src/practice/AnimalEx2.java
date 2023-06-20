@@ -9,7 +9,7 @@ public class AnimalEx2 {	public static void main(String[] args) {
 	james.feed(lion1);
 	james.feed(monkey1);
 	james.feed(rabbit1);
-	
+	System.out.println(lion1);
 }
 
 }
@@ -20,17 +20,17 @@ class Animal{
 
 class Lion extends Animal{
 	public String toString() {
-		return "사자";
+		return "사자5";
 	}
 }
 class Rabbit extends Animal{
 	public String toString() {
-		return "토끼";
+		return "토끼5";
 	}
 }
 class Monkey extends Animal{
 	public String toString() {
-		return "원숭이";
+		return "원숭이5";
 	}
 }
 

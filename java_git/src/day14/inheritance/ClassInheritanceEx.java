@@ -18,8 +18,10 @@ public class ClassInheritanceEx {
 		 * 
 		 */
 		SmartPhone phone1 = new SmartPhone();
+		System.out.println("스마트폰 인스턴스화");
 		phone1.call("010-1234-5678");
 		phone1.answer("02-123-4567");
+		System.out.println();
 		
 		// 부모클래스에서 멤버변수를 private으로 설정하면 자식클래스에서 사용불가
 		// 사용하려면 부모클래스에서 getter를 만들어야함
@@ -37,11 +39,11 @@ public class ClassInheritanceEx {
 		
 		// 다운캐스팅이 되는 경우
 		Phone p2 = new SmartPhone(); // 업캐스팅
-		System.out.println("업캐스팅 후 ");
+		System.out.println("업캐스팅 자식클래스(SmartPhone) 객체를 부모타입(Phone)으로 변환  ");
 		p2.call("123-4567");
 		
 		SmartPhone c2 = (SmartPhone) p2;
-		System.out.println("다운캐스팅 후");
+		System.out.println("다운캐스팅 후 업캐스팅한 객체를 자식타입으로 변환");
 		c2.call("123-4567");
 	
 	}
