@@ -1,4 +1,4 @@
-package day15.practice.test;
+ package day15.practice.test;
 
 public class ShopEx {
 	/* 1. 제품 판매 : 어떤 고객이 어떤 제품을 구매했는지 관리
