@@ -92,8 +92,8 @@ public class Shop {
 			System.out.println("판매한 제품명 : " + productList[index].getName() );
 			System.out.println("판매한 개수 : " + sellCount);
 			System.out.println("총 판매 금액 : " + productList[index].getPrice() * sellCount);
-			Product p = new Product(plist[index]);
-			p.setProductCount(sellCount);
+//			Product p = new Product(productList[index]);
+//			p.setProductCount(sellCount);
 			
 			sellProductList[index].store(sellCount);
 			

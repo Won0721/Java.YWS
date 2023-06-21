@@ -9,6 +9,11 @@ public class Product {
 		this.name = name;
 		this.price = price;
 	}
+	public Product(Product p) {
+		this.name = p.name;
+		this.price = p.price;
+		this.productCount = p.productCount;
+	}
 	
 	public Product(String name, int productCount, int price) {
 		this.name = name;
@@ -54,6 +59,9 @@ public class Product {
 
 	public void setPrice(int price) {
 		this.price = price;
+	}
+	public void setProductCount(int productCount) {
+		this.productCount = productCount;
 	}
 	
 
