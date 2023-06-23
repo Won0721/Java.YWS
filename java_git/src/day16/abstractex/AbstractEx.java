@@ -10,6 +10,7 @@ public class AbstractEx {
 				System.out.println("class A Test.");
 			}
 		};
+	
 		a.test();
 		
 		A a2 = new A() {
