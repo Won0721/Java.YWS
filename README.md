@@ -217,3 +217,60 @@ class BBB extends AAA{
 #### 다형성
   같은 인터페이스 또는 부모를 공유(상속)하는 객체가 여러 유형의 타입을 가질 수 있는것을 말한다.
   - instanceof 연산자 - 객체가 특정 클래스 또는 인터페이스의 인스턴스인지 여부 확인.
+
+#### Object 클래스
+ - 모든 클래스의 최상위 클래스
+ - 클래스를 만들 때 따로 상속을 지정하지 않으면 Object 클래스에게 자동으로 상속받음
+ - 주로 일반 클래스에서 Object 클래스의 메서드를 오버라이딩하여 사용	<br/>
+
+#### Objetc 클래스 메서드
+ - equals() : 두 객체가 같은지 알려주고 boolean으로 반환
+ - toString : 객체 정보를 문자열로 반환. 기본은 패키지.클래스명@해시코드값
+ - hashCode() : 객체의 해시 코드값을 반환. 해시 값은 해시를 이용한 자료구조에서 사용
+ - clone() : 객체를 복제해서 같은 멤버값을 가진 새로운 객체 생성
+ - getClass() : 객체의 Class 클래스를 반환
+ - finalize() : 객체가 메모리에서 GC에 의해 제거될 때 호출되는 메서드
+ - wait() : 쓰레드에서 사용. 대기상태로 만듬
+ - notify() : 쓰레드에서 사용. 실행 가능한 상태로 만듬
+
+
+#### Exception 클래스
+모든 예외 클래스의 최상위 조상 클래스
+  - RuntimeException 클래스와 RuntimeException이 아닌 클래스로 구분
+    - RuntimeException 클래스는 실행 시 발생. 예외처리 안해도 실행 가능
+    - RuntimeException이 아닌 클래스는 코드상으로 발생. 예외처리 안하면 실행 불가능
+
+    
+#### RuntimeException 클래스
+- NullPointerException : null 객체를 참조했을 경우
+- ArrayIndexOutOfBoundsException : 배열을 참조하는 인덱스가 잘못된 경우
+- NumberFormatException : 숫자형식오류 ex) Integer.parseInt("010") , Integer.paraseInt("123a") 
+- ClassCastException : 적절치 못하게 Class를 형 변환하는 경우
+- ArithmeticException : 정수를 0으로 나누었을 경우
+
+#### Exception 메서드
+ - getMessage() : 예외 메세지를 문자열로 가져옴
+ - printStackTrace() : 예외가 발생한 위치를 콘솔에 출력
+
+```
+try{
+	// 예외가 발생할 수 있는 코드
+	
+}catch(예외클래스명 e){
+	// 예외처리
+	// 부모 클래스 Exception을 사용할 경우 catch의 객체로 자식클래스가 올수 없음
+
+}catch(예외클래스명2 e){
+	// 예외처리
+}finally{
+	// 반드시 실행되는 코드
+}
+
+// 특정 조건을 만족할 때 예외를 발생시킴
+if(조건식) {
+	throw new 예외클래스명("메세지");
+}
+```
+
+
+ 	
