@@ -37,8 +37,10 @@ public class Arithmetic {
 				print();		
 			}catch(InputMismatchException e) {
 				System.out.println("Input 오입력");	
+				System.out.println(e.getMessage());
 				sc.nextLine(); // 예외발생으로 1+2 값이 버퍼에 남아있음
 			}catch(ArithmeticException e) {
+				System.out.println(e.getMessage());
 				System.out.println("Arith 에러 발생");
 			}
 		}
@@ -61,7 +63,7 @@ public class Arithmetic {
 			case '*' : res = num1 * num2; return res;
 			case '/' : 
 			if(num2==0) {
-				throw new ArithmeticException("0으로 나눌수 없어요 연산자오류");
+				throw new ArithmeticException();
 			}	
 			res = num1 / (double)num2; 
 			return res;
