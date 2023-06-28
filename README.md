@@ -306,3 +306,15 @@ if(조건식) {
 - LinkedHashSet
   - 연결된 목록 타입으로 구현된 hash table에 데이터 저장.
   - 저장된 순서에 따라 값이 정렬되나 셋 중 가장 느림
+
+### Map : 인터페이스
+    1) Key와 Value를 가진 집합이며, 중복을 허용하지 않는다.
+    2) Key : 중복 허용 X
+       Value : 중복 허용 O
+
+
+ - HashMap
+       - 순서유지 X
+       -     
+
+ - TreeMap
