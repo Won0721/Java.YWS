@@ -19,6 +19,10 @@ public class Word {
 		this.meanings = new ArrayList<>();
 	}
 	
+	public Word(Word w) {
+		this.title = w.title;
+		this.meanings = (ArrayList<String>) w.meanings.clone();
+	}
 	
 	public void print() {
 		System.out.println();
