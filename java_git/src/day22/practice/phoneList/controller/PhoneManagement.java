@@ -2,7 +2,9 @@ package day22.practice.phoneList.controller;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
+import java.util.List;
 import java.util.Scanner;
+import java.util.stream.Stream;
 
 import day22.practice.phoneList.vo.Phone;
 
@@ -15,7 +17,8 @@ public class PhoneManagement implements Program{
 	 */
 	private ArrayList<Phone> phoneList = new ArrayList<>();
 	private Scanner sc = new Scanner(System.in);
-
+	List<Phone> list = (List<Phone>) phoneList;
+	
 
 	@Override
 	public void run() {
@@ -35,7 +38,7 @@ public class PhoneManagement implements Program{
 			}
 	
 			
-		}while(menu != 4);
+		}while(menu != 5);
 		
 	}
 
@@ -49,13 +52,13 @@ public class PhoneManagement implements Program{
 
 	@Override
 	public void runMenu(int menu) {
-		
+	
 		switch(menu) {
-		
 		case 1: insert(); break;
 		case 2: update(); break;
 		case 3: search(); break;
-		case 4: break;
+		case 4: System.out.println("종료"); break;
+		default : System.out.println("오입력");
 		}
 	}
 	
@@ -67,7 +70,7 @@ public class PhoneManagement implements Program{
 		String phone = sc.nextLine();
 		
 		if(checkPhone(phone) == -1) {
-			phoneList.add(new Phone(phone, name));
+			phoneList.add(new Phone(name, phone));
 			System.out.println("저장 완료");
 			return;
 		}
@@ -78,7 +81,7 @@ public class PhoneManagement implements Program{
 			
 			if(ch == 'Y') {
 				phoneList.remove(checkPhone(phone));
-				phoneList.add(new Phone(phone, name));
+				phoneList.add(new Phone(name, phone));
 				System.out.println("업데이트 완료");
 				return;
 			}	
@@ -100,17 +103,17 @@ public class PhoneManagement implements Program{
 		System.out.print("이름 : ");
 		String name = sc.next();
 		sc.nextLine();
-		System.out.println("휴대폰 번호 : ");
+		System.out.print("휴대폰 번호 : ");
 		String phone = sc.nextLine();
 		
 		System.out.print("이름 변경 : ");
 		String updateName = sc.next();
 		sc.nextLine();
-		System.out.println("휴대폰 번호 변경 : ");
+		System.out.print("휴대폰 번호 변경 : ");
 		String updatePhone = sc.nextLine();
 		
-		if(checkPhone(phone) != -1) {	
-			phoneList.get(checkPhone(phone)).setName(updateName);
+		if(checkPhone(updatePhone) == -1) {	
+			phoneList.get(checkPhone(name)).setName(updateName);
 			phoneList.get(checkPhone(phone)).setPhoneNumber(updatePhone);
 			return;
 		}
@@ -120,6 +123,7 @@ public class PhoneManagement implements Program{
 	}
 	
 	public void search() {
+		
 		if(phoneList.size() == 0) {
 			System.out.println("저장된 연락처 없음");
 			return;
@@ -128,29 +132,29 @@ public class PhoneManagement implements Program{
 		System.out.println("1. 휴대폰번호 검색");
 		System.out.println("2. 이름 검색");
 		sel = sc.nextInt();
+		
 		switch(sel) {
 		case 1: searchPhone(); break;
-		case 2: searchName(); break;
+		case 2: searchName();
+		case 3: 
+			break;
 		default : System.out.println("오입력");
 		}
 		
 	}
 	
 	public void searchName() {
-		
+		sc.nextLine();
 		System.out.println("이름 검색 :");
 		String name = sc.next();
 		
-		
-		
-			System.out.println("이름/t휴대폰번호");	
-			phoneList.get(checkName(name)).print();
+		int index = checkName(name);
+		if(index != -1) {
+			System.out.println("이름\t휴대폰번호");	
+			phoneList.get(index).print();
 			return;
-		
-		
-		
-		
-		
+		}
+		System.out.println("검색 결과 없음");
 	}
 	
 
@@ -159,9 +163,10 @@ public class PhoneManagement implements Program{
 		sc.nextLine();
 		System.out.println("휴대폰 번호 검색 : ");
 		String phone = sc.nextLine();
+		int index = checkPhone(phone);
 		if(checkPhone(phone) != -1) {
-			System.out.println("이름/t휴대폰번호");	
-			phoneList.get(checkPhone(phone)).print();
+			System.out.println("이름\t휴대폰번호");	
+			phoneList.get(index).print();
 			return;
 		}
 		System.out.println("검색 결과 없음");
@@ -180,7 +185,7 @@ public class PhoneManagement implements Program{
 
 	}
 	public int checkPhone(String phoneNumber) {
-		
+		// 번호 있으면 i 없으면 -1
 		for(int i=0; i<phoneList.size(); i++) {
 			if(phoneList.get(i).getPhoneNumber().equals(phoneNumber)) {
 				return i;

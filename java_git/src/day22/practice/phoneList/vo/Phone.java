@@ -13,8 +13,14 @@ public class Phone {
 	private String name;
 	private String phoneNumber;
 	
+	
+	public Phone(Phone p) {
+		this.name = p.name;
+		this.phoneNumber = p.phoneNumber;
+	}
+	
 	public void print() {
-		System.out.println(name + "\t" +phoneNumber);
+		System.out.println(this.name + "\t" + this.phoneNumber);
 	}
 
 	@Override
