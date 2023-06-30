@@ -86,7 +86,13 @@ public class Student {
 	
 	public void setInfo(int grade, int classNum, int num, int kor, int eng, int math) {
 		StudentRecord sr = new StudentRecord(grade, classNum, num, kor, eng, math);
-		insertInfo(sr);
+		for(StudentRecord i : StudentRecordList) {
+			if(i.getClassNum() == sr.getClassNum() && i.getClass() == sr.getClass()) {
+				i = sr;
+				return;
+			}
+		}
+		StudentRecordList.add(sr);
 	}
 	
 	public void insertInfo(StudentRecord s) {
@@ -100,6 +106,12 @@ public class Student {
 			}
 		}
 		StudentRecordList.add(s);
+	}
+	public void printInfo() {
+		System.out.println("학년 반 번호 국어 수학 영어");
+		for(StudentRecord i : StudentRecordList) {
+			i.print();
+		}
 	}
 
 	

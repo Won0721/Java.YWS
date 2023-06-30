@@ -24,7 +24,7 @@ public class StudentRecord {
 	
 	
 	public void print() {
-		System.out.println(grade + classNum + num + kor + eng + math);
+		System.out.println(grade +"학년  "+ classNum + "반 " + "출석번호 : " + num + "국어 :" + kor + " 영어 : "+eng+ " 수학 : " + math);
 	}
 
 }
