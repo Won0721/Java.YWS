@@ -475,4 +475,68 @@ Hello Python
 Good Java
 Java World
 ```
-## 스트림 Stream 
+## 컬렉션 스트림(Stream) # 데이터의 연속적인 흐름
+컬렉션 데이터를 처리할 때, 컬렉션 데이터를 "선언형"으로 쉽게 처리할 수 있고  
+멀티스레드 코드를 구현하지 않아도 데이터를 병렬처리 할 수 있다.
+
+#### [스트림 사용 X]
+```
+@Data //loombok 사용
+class Apple{
+	String color   // 사과 색깔
+	int weight     // 사과 무게
+	int uid       // 사과 고유번호
+	public Apple(String color, int weight, int uid){
+		this.color = color;
+		this.weight = weight;
+		this.uid = uid;
+	}
+
+	public Apple(Apple a){
+		this.color = a.color;
+  		this.weight = a.weight;
+    		this.uid = a.uid;
+	}
+	public String getColor{
+		return color;
+	}
+	public void setColor(String color){
+		this.color = color;
+	}
+	...
+}
+
+// 빨간색 사과 필터링
+List<Apple> appleList = new ArrayList<>();
+List<Apple> redApples;
+for(Apple apple : appleList){
+	if(apple.getColor().equals("RED")){
+		redApples.add(new Apple(apple); 
+	}
+}
+============================================================
+// 람다식 사용
+List<Apple> redApples = forEach(appleList, (Apple apple) ->
+apple.getColor().equals("RED"));
+
+// 무게 순서대로 정렬
+reApples.sort(Comparator.comparing(Apple::getWieght));
+
+// 사과 고유번호 출력
+List<Integer> redHeavyAppleUid = new ArrayList<>();
+for ( Apple apple : redApples)
+	redHeavyAppleUid.add(apple.getUidNUm());
+```
+
+
+#### [스트림 사용 O]
+```
+List<Apple> appleList = new ArrayList<>();
+Stream<Apple> st = appleList.stream();
+st.filter(apple -> apple.getColor().equals("RED")) // 빨간색 사과 필터링
+  .map(apple -> apple.getUid())			// 사과 고유번호만 가져오기
+  .collect(Collectors.toList());	// 사과 고유번호 출력
+
+
+```
+
