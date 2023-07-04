@@ -476,7 +476,7 @@ Good Java
 Java World
 ```
 ## 컬렉션 스트림(Stream) # 데이터의 연속적인 흐름
-컬렉션 데이터를 처리할 때, 컬렉션 데이터를 "선언형"으로 쉽게 처리할 수 있고  
+컬렉션 데이터를 처리할 때, 컬렉션 데이터를 **선언형**으로 쉽게 처리할 수 있고  
 멀티스레드 코드를 구현하지 않아도 데이터를 병렬처리 할 수 있다.
 
 #### [스트림 사용 X]
@@ -540,3 +540,73 @@ st.filter(apple -> apple.getColor().equals("RED")) // 빨간색 사과 필터링
 
 ```
 
+## 스레드
+
+### 1) 프로세스와 스레드 
+
+#### 프로세스
+프로세스(Process)는 일반적으로 cpu에 의해 메모리에 올려져 실행중인 프로그램을 말하며,  
+자신만의 메모리 공간을 포함한 독립적인 실행 환경을 가지고 있음.  
+우리가 사용하는 프로그램 중 일부는 여러 프로세스 간 상호작용을 하는 것일수도 있다.  
+자바 JVM(Java Virtual Machine)은 주로 하나의 프로세스로 실행되며, 동시에 여러 작업을 수행하기 위해서 **멀티 스레드**를 지원하고 있다.
+
+#### 스레드
+프로세스안에서 실질적으로 작업을 실행하는 단위를 말하며, 자바에서는 JVM(Java Virtual Machine)에 의해 관리  
+프로세스에는 적어도 한개 이상의 스레드가 있으며, Main 스레드 하나로 시작하여 스레드를 추가 생성하게 되면 멀티 스레드 환경이 됨
+
+#### 스레드 생성방법
+1) Thread 클래스를 상속 받는 방법	 **But... Thread를 상속받게 되면 다른 클래스를 상속 받을 수 없음**
+2) Runnable 인터페이스 구현
+
+#### 스레드의 생성자
+1) Thread( ) : 새로운 스레드 객체 할당
+2) Thread(String name) : 새로운 스레드 객체가 할당되며, 스레드 이름은 name으로 설정됨
+3) Thread(Runnable target) : Runnable target이 구현된 스레드 객체 할당
+4) Thread(Runnable target, String name) : Runnable target이 구현된 스레드 객체가 할당되면 스레드 이름은 name으로 설정됨.
+
+#### 스레드의 메서드
+1) void run() : 
+2) void start() : 스레드가 시작 되도록 요청하는 메서드
+3) void interrupt() : 스레드를 중지
+4) void join() : 스레드가 끝날 때 까지 기다림
+5) void join(ling millis) : 최대 millis 시간 동안 이 스레드가 끝날 때 까지 기다림
+6) static void sleep(long millis) : millis 시간 동안 현재 스레드를 일시 중지
+7) static void yield() : 현재 스레드의 실행시간을 다른 스레드에게 양보
+8) static Thread currentThread() : 현재 실행중인 스레드 객체의 참조값을 반환
+9) int getPrioriy() : 스레드의 우선순위 값을 반환 (우선순위 범위 : 1 ~ 10)
+10) void setPriority(int newPriority) : 이 스레드의 우선순위를 newPriority로 변경
+11) String toString() : 이 스레드의 이름, 우선순위 스레드그룹 등의 정보를 담은 문자열을 반환
+
+  
+### 1) Thread 클래스 상속 방식
+```
+class MyThread extends Thread{
+	public void run(){				// 1. Thread 클래스 상속한 클래스 정의
+		System.out.println(this.getName());	// 2. run()메소드 오버라이드 및 스레드 코드 작성
+	}
+}
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		MyThread mt1 = new MyThread();		// 3.스레드 객체 생성
+		mt1.start();				// 4.스레드 실행
+	}
+}
+```
+### 2) Runnable 인터페이스 구현 방식
+```
+class MyThread implements Runnable {			// 1.Runnable 인터페이스를 구현하는 클래스 정의
+	public void run() {				// 2.run()메소드 오버라이드 및 스레드 코드 작성
+		System.out.println(Thread.currentThread().getName());
+	}
+}
+
+public class HelloWorld {
+	public static void main(String[] args) {
+		Runnable r1 = new MyThread();		// 3.Runnable 객체 생성
+		Thread t1 = new Thread(r1);		// 4.Thread 객체 생성
+		t1.start();				// 5.스레드 실행
+	}
+}
+
+```
