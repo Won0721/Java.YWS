@@ -27,7 +27,7 @@ public class StreamEx2 {
 		
 		listStream
 				.filter(s -> s.getKor() >= 60)
-				.forEach(s -> System.out.println(s.getName()));
+				.forEach(s -> s.toString(s));
 
 		// 국어 성적의 총합 출력
 		listStream = list.stream();
@@ -52,6 +52,10 @@ public class StreamEx2 {
 @Data
 @AllArgsConstructor
 class Student{
+	public Object toString(Student s) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 	int grade, classNum, num;
 	String name;
 	int kor, math, eng;
