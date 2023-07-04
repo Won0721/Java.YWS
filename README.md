@@ -318,3 +318,161 @@ if(조건식) {
        -     
 
  - TreeMap
+
+## 람다 (Lambda)
+람다 함수는 프로그래밍 언어에서 사용되는 개념으로 익명함수(Anonymous functions)를 지칭하는 용어  
+함수를 보다 간단하게 표현하는 방법
+
+#### 장점
+1. 코드를 간결하게 만들 수 있다.
+2. 개발자의 의도가 명확히 드러나 가독성이 높아진다.
+3. 함수를 만드는 과정없이 한번에 처리할 수 있어 생산성이 높아진다.
+4. 병렬프로그래밍이 용이하다
+#### 단점
+1. 람다를 사용하면서 만든 익명함수는 재사용이 불가능하다.
+2. 디버깅 어렵다.
+3. 람다를 남발하면 코드가 지저분해질 수 있다.
+4. 재귀로 만들경우에 부적합하다.
+
+### 람다의 표현식
+1. 매개변수 화살표(->) 함수몸체로 이용하여 사용한다.
+2. 함수몸체가 단일 실행문일 경우, 괄호{} 를 생략 할 수 있다.
+3. 함수몸체가 return문으로만 구성되어 있는 경우 괄호{} 를 생략 할 수 없다.
+
+() -> {}
+() -> 1
+() -> { return 1;}
+
+
+#### 람다식의 기본 형태 
+```
+A a = (매개값) -> { 구현 코드 }; 
+```
+
+#### 1. 매개변수 X , 리턴 X
+```
+@FunctionalInterface // 구현해야 할 추상 메소드가 하나만 정의된 인터페이스
+public interface ClassA{
+	void method();
+}
+
+public class AAA {
+	public static void main(String[] args) {
+	// 객체 선언
+	ClassA ca;
+
+	ca = () -> {
+		System.out.println("Hello");
+	};
+	ca.method();
+
+	// 실행코드가 1줄인 경우 { } 생략가능
+	ca = () -> System.out.println("Hello");
+	ca.method();
+	}
+
+}
+
+실행 결과
+Hello
+Hello
+
+```
+
+
+#### 2. 매개변수 O, 리턴 X
+```
+@FunctionalInterface // 구현해야 할 추상 메소드가 하나만 정의된 인터페이스
+public interface ClassA{
+	void method(String str);
+}
+public class AAA {
+	public static void main(String[] args) {
+		// 객체 선언
+		ClassA ca;
+		String str;
+	
+		ca = (a) -> {
+			System.out.println(a + " Java");
+		};
+		str = "Hello";
+		ca.method(str);
+	
+	 	// 매개변수가 1개인 경우 () 생략 가능
+		ca = a -> System.out.println( a +" Hello");
+		ca.method("Python");
+	}
+}
+
+실행 결과
+Hello Java
+Heelo Python
+
+```
+
+#### 3. 매개변수 X , 리턴 O
+```
+@FunctionalInterface // 구현해야 할 추상 메소드가 하나만 정의된 인터페이스
+public interface ClassA{
+	void method();
+}
+public class AAA {
+	public static void main(String[] args) {
+		// 객체 선언
+		ClassA ca;
+	
+		String str1 = "Python";
+		String str2 = "Java";
+	
+	
+		ca = () -> {
+			return str1;
+		};
+		System.out.println(ca.method());
+	
+		ca = () -> { return str2; };
+		System.out.println(ca.method());
+	}
+}
+
+실행 결과
+Python
+Java
+
+```
+#### 매개변수 O , 리턴 O
+```
+@FunctionalInterface // 구현해야 할 추상 메소드가 하나만 정의된 인터페이스
+public interface ClassA{
+	void method(String s);
+}
+public class AAA {
+	public static void main(String[] args) {
+		// 객체 선언
+		ClassA ca;
+	
+		String str1 = "Python";
+		String str2 = "Java";
+		String str3 = "World";
+	
+	
+		ca = (s) -> {
+			return s + str1;
+		};
+		System.out.println(ca.method("Hello"));
+	
+		ca = (s) -> { return s + str2; };
+		System.out.println(ca.method("Good"));
+	
+		ca = s -> s + str3;
+		System.out.println(ca.method("Java"));;
+
+	}	
+}
+
+실행 결과
+Hello Python
+Good Java
+Java World
+```
+## 스트림 Stream 
