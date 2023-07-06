@@ -18,8 +18,7 @@ public class AttendanceBook implements Serializable{
 	 */
 	private static final long serialVersionUID = -8626810148394081381L;
 	List<Attendance> list = new ArrayList<>();
-	 List<Student> stdList = new ArrayList<>();
-	 Scanner sc = new Scanner(System.in);
+	List<Student> stdList = new ArrayList<>();
 	
 	// 이미 등록된 학번이면 등록 실패 : 학생 클래스가 학번을 통해서 같은지 확인할수 있어야함.
 	public boolean insertStudent(Student s) {

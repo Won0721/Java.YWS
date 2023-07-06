@@ -142,11 +142,12 @@ public class AttendanceController {
 				System.out.println("불러올 파일이 없습니다.");
 			} catch (EOFException e) {
 				System.out.println("불러오기 완료!");
-			} catch (IOException e) {
-				e.printStackTrace();
 			} catch (ClassNotFoundException e) {
 				//ObjectInputStream을 이용하여 객체단위로 읽어올 때 클래스가 Serializable인터페이스를 구현하지 않으면 발생 
 				System.out.println("AttendanceBook 클래스를 찾을 수 없습니다.");
+			} catch (IOException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		
 	}
