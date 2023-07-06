@@ -610,3 +610,48 @@ public class HelloWorld {
 }
 
 ```
+
+## i/o 스트림
+컴퓨터 내부 또는 외부의 장치와 프로그램간의 데이터를 Stream 이라는 관(빨대)를 통해서 주고받는 것을 의미한다.
+
+### byte 기반 스트림의 최상위 클래스
+- InputStream
+- OutputStream
+Input(Reader) : 외부에서 데이터를 읽는 역할
+Output(Writer) : 외부로 데이터를 출력하는 역할
+
+**FileInputStream   / FileOutputStream**  		File(파일)  
+**ByteArrayInputStream  / ByteArrayOutputStream**  	메모리(byte 배열)  
+**PipedInputStream / PipedOutputStream**  	프로세스 (프로세스간의 통신)  
+**AudioInputStream / AudioOutputStream** 오디오 장치
+
+
+#### 보조 스트림
+스트림의 기능을 보완하기 위한 보조스트림이 존재를 하는데 실제로 데이터를 주고받는 스트림은 아니기 때문에  
+데이터를 입출력할 수 있는 기능은 없음  
+스트림의 기능을 향상시키거나 새로운 기능을 추가할 수 있다.  
+스트림을 먼저 생성한 다음에 이를 이용하여 보조스트림을 생성해야 한다
+
+
+### 문자 스트림
+바이트 기반의 스트림은 입출력 단위가 1byte로, 2byte인 문자를 처리하기에 어려움이 있어 제공된 기능
+**FileReader   / FileWriter**  		
+**CharArrayReader  / CharArrayWriter**  	
+**PipedReader / PipedWriter**  	 
+**AudioReader / AudioWriter**
+
+### 직렬화(Serialize)
+ - 자바 시스템 내부에서 사용되는 Object 또는 Data를 외부의 자바 시스템에서도 사용할 수 있도록 byte 형태로 데이터를 변환하는 기술.
+ -  JVM(Java Virtual Machine 이하 JVM)의 메모리에 상주(힙 또는 스택)되어 있는 객체 데이터를 바이트 형태로 변환하는 기술과 직렬화된 바이트 형태의 데이터를 객체로 변환해서 JVM으로 상주시키는 형태
+ - 직렬화를 통해 프로그램이 실행되는 동안 생성된 객체를 스트림을 이용해서 지속적으로 보관하거나 전송 할 수 있다.
+ - 클래스를 직렬화 하려면 class명 implements Serializable 사용 
+
+### 역직렬화(Deserialize) 
+ - byte로 변환된 Data를 원래대로 Object나 Data로 변환하는 기술
+ - 직렬화된 바이트 형태의 데이터를 객체로 변환해서 JVM으로 상주시키는 형태
+
+## ObjectStream
+ObjectOutputStream 과 ObejctInputStream은 각각 객체를 직렬화, 역직렬화하는 메소드를 제공하는 스트림  
+자바에서 객체 안에 저장되어 있는 내용을 파일로 저장하거나 네트워크를 통하여 다른 곳으로 전송하려면  
+객체를 바이트 형태로 일일이 분해해야 한다.  
+이를 위하여 객체를 직접 입출력 할 수 있도록 해주는 객체 스트림이다.
