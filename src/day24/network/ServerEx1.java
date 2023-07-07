@@ -12,7 +12,7 @@ public class ServerEx1 {
 	public static void main(String[] args) {
 		int port = 5001;//1. 포트번호 설정
 		
-		ServerSocket severSocket = null;
+		ServerSocket severSocket;
 		Scanner sc = new Scanner(System.in);
 		try {
 			//2. 서버소켓 생성
