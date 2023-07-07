@@ -520,7 +520,7 @@ List<Apple> redApples = forEach(appleList, (Apple apple) ->
 apple.getColor().equals("RED"));
 
 // 무게 순서대로 정렬
-reApples.sort(Comparator.comparing(Apple::getWieght));
+redApples.sort(Comparator.comparing(Apple::getWieght));
 
 // 사과 고유번호 출력
 List<Integer> redHeavyAppleUid = new ArrayList<>();
