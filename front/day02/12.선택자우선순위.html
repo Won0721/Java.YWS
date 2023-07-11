@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+        /* 선택자 우선순위 
+        같은 요소에 같은 스타일을 여려번 적용할 때 
+        누가 최종적으로 적용될 것 인가 정하는것
+        !important > style > 아이디 > 클래스 > 태그 > 전체 
+        태그 : 1점
+        클래스 : 10점
+        아이디 : 100점
+            - 동일 순위일 경우, 마지막에 있는 요소가 적용
+            !important : 가장 최순위
+        */
+        p{ color: red !important;}              /* 5순위 -> important로 1순위 됨*/
+        .item{color:blue;}           /* 4순위*/
+        .item-title{color: green;}  /* 3순위*/
+        body .item{color:pink;}     /* 2순위*/
+        #title{color: blueviolet;} /* 1순위*/
+    
+    </style>
+<body>
+    
+    <p class="item item-title" id="title" style="">
+        안녕하세요
+    </p>
+</body>
+</html>
