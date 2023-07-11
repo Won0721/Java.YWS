@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="" method="post"> <!-- 비밀번호가 노출되면 안되기에 get 방식이 아닌 post방식으로 전송-->
+        <h1>회원가입</h1>
+        <fieldset> <!-- 박스 생성-->
+            <legend>회원정보</legend>
+            <label>
+                아이디 &nbsp;&nbsp;
+                <input type="text" name="id" id="">
+            </label>
+            <br>
+            비밀번호
+            <label>
+                <input type="password" name="pw" id="">
+            </label>
+            <br>
+            번호확인
+            <label>
+                <input type="password" name="pw2" id="">
+            </label>
+        </fieldset>
+   
+        <fieldset>
+            <legend>개인정보</legend>
+            전화번호
+            <label>
+                <input type="tel" name="tel" id="" placeholder="- 를 제외하고 입력" pattern="\d{11}">
+            </label>
+            <br>
+            이메일&nbsp &nbsp
+            <label>
+                <input type="email" name="email" id="">
+            </label>
+            <br>
+            이름&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+            <label>
+                <input type="text" name="name" id="">
+            </label>
+            <br>
+            성별&nbsp&nbsp&nbsp&nbsp&nbsp
+            <label>
+                <input type="radio" name="gender" value="M">남성
+            </label>
+            <label>
+                <input type="radio" name="gender" value="W">여성
+            </label>
+        </fieldset>
+        <br>
+        <input type="submit" value="가입">
+
+
+    </form>
+</body>
+</html>
