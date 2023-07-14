@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+    <style>
+        /*
+        1. :first-child : 첫번째 요소를 선택
+        2. :last-child : 마지막 요소를 선택
+        3. :nth-child(정수) : 정수번째 요소를 선택
+        4. :nth-child(2n) : 짝수번째 요소를 선택 / nth-child(2n+1)
+
+        1. :first-of-type : 첫번째 요소를 선택
+        2. :last-of-type : 마지막 요소를 선택
+        3. :nth-of-type(정수) : 정수번째 요소들을 선택
+        4. :nth-of-type(2n) : 짝수번째 요소들을 선택
+        
+        nth-child / nth-of-type 차이
+         - child 는 딱 한번만 적용
+         - of-type 은 동일한 태그는 제일 앞에꺼 한번만 적용 , 다른 태그들은 계속 적용 됨
+        */
+
+        /*
+        input 태그 관련된 선택자
+
+        :checked : 체크된 요소
+        :focus : 활성화 된 요소, 클릭이나 탭으로 요소를 선택했을 때
+        :enabled : 사용 가능한 요소
+        :disabled : 사용불가능한 요소
+        :not(선택자) : (선택자)가 아닌 요소들 input태그가 아닌 요소들을 선택
+        */
+        .list :first-of-type{color: red;}
+        .box  :first-of-type{color: red;}
+
+        .list :first-child{font-weight: bold;}
+        .box :first-child{font-size: 25px;}
+
+        .list :nth-child(3){color: green;}
+        .box :nth-child(2n){color: blueviolet;}
+        .list :nth-child(2n+1){font-size: 25px;}
+        
+        .box > :not(input){
+            background-color: gray;
+        }
+
+        .check:checked + .name{ /*클래스 check가 체크된 요소를 만족하면 +(뒤에 있는) 클래스의 요소를 css입힘*/
+            color: gray;
+        }
+        .id:focus{ /*클래스 id에 초점이 맞춰진 경우 css 입힘*/
+            background-color: yellow;
+        }
+        input:enabled{
+            border: 1px solid red;
+        }
+        input:disabled{
+            border: 1px solid green;
+        }
+    </style>
+        <ul class="list">
+            <li class="link">1.안녕하세요</li>
+            <li class="link">2.제 이름은 홍길동</li>
+            <li class="link">3.만반잘부</li>
+        </ul>
+        <div class="box">
+            <a href="#" class="link">1.링크</a>
+            <button class="link">2.버튼</button>
+            <div class="link">3.박스</div>
+            <a href="#" class="link">4.링크</a>
+            <button class="link">5.버튼</button>
+            <div class="link">6.박스</div>
+            <p>asa</p>
+        </div>
+
+        <div class="box">
+            <input type="checkbox" name="" class="check">
+            <span class="name">홍길동</span>
+            <input type="text" name="" class="id" placeholder="ID를 입력하세요">
+            <input type="text" name="" class="readonly" readonly>
+            <input type="text" name="" class="readonly" disabled>
+        </div>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box1{
+            width: 100px; height: 100px; background-color: rebeccapurple;
+        }
+        .box2{
+            width: 100px; height: 100px; background-color: red;
+            display: none; /* 처음에 안보이게 감춤*/
+        }
+        .container2{
+            margin-top: 200px;
+        }
+        .container1>.box1:hover~.box2{ /*컨테이너 밑에 있는 박스 호버 시 */
+            display: block;
+        }
+        .container2:hover>.box2{
+            display: block;
+        }
+        .container1, .container2{
+            float: left;
+        }
+    </style>
+</head>
+<body>
+    <!--box1에 마우스 갔다댔을때 box2가 나타나고 유지-->
+    <div class="container">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+    <!-- box1에 마우스 갔다댔을 때 box2가 나타나고 box2에 마우스를 갔다대도 유지 ex: github메뉴-->
+    <div class="container2">
+        <div class="box1"></div>
+        <div class="box2"></div>
+    </div>
+
+</body>
+</html>
